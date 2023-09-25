@@ -13,11 +13,8 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import dayjs, { Dayjs } from "dayjs";
-import {
-  useEditVocationMutation,
-  useGetAllDataQuery,
-} from "../../features/getAllDataApi";
+import dayjs from "dayjs";
+import { useEditVocationMutation } from "../../features/getAllDataApi";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -119,7 +116,7 @@ export default function EditCardsModal({
     resolver: yupResolver(schema),
   });
 
-  const [editVocation, { isLoading: loads, error }] = useEditVocationMutation();
+  const [editVocation] = useEditVocationMutation();
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -160,9 +157,8 @@ export default function EditCardsModal({
     }
   };
 
-  const country = cardsData.country;
-
   React.useEffect(() => {
+    const country = cardsData.country;
     const imagePath = `/images/countriesImg/${country.toLowerCase()}/${mainImage}`;
     setInitialImage(imagePath);
   }, [mainImage]);

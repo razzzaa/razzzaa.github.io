@@ -1,7 +1,6 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import { useGetAllDataQuery } from "../features/getAllDataApi";
 import { axisClasses } from "@mui/x-charts/ChartsAxis";
 import { useGetSumQuery } from "../features/getSummedCount";
 import CsvFile from "../components/csvDownload";
@@ -10,19 +9,16 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useSelector } from "react-redux";
 
 export default function Statistics() {
-  const { data: allData } = useGetAllDataQuery();
   const { data: countData } = useGetSumQuery();
-
-  const mainData = allData?.data;
 
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth.isAuthenticated);
   console.log(auth);
-  const handleLogOut = () => {
-    navigate("/login");
-  };
 
   React.useEffect(() => {
+    const handleLogOut = () => {
+      navigate("/login");
+    };
     if (auth === false) {
       handleLogOut();
     }

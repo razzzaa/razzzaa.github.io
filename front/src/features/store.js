@@ -6,7 +6,6 @@ import { apiSlice } from "./followersApi";
 import { vocationApi } from "./getAllDataApi";
 import filterReducer from "./favDateSlice";
 import { followersCountApi } from "./getSummedCount";
-import { useEffect } from "react";
 
 const store = configureStore({
   reducer: {

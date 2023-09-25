@@ -6,7 +6,6 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useSpring, animated } from "@react-spring/web";
-import axios from "axios";
 import { FormControl, Grid, TextField } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -83,12 +82,7 @@ export default function AddCardsModal(props) {
     props.checkIsClosed(true);
   };
 
-  const {
-    data,
-    isLoading,
-    isError,
-    refetch: refetchAllData,
-  } = useGetAllDataQuery();
+  const { refetch: refetchAllData } = useGetAllDataQuery();
 
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
@@ -139,7 +133,7 @@ export default function AddCardsModal(props) {
     resolver: yupResolver(schema),
   });
 
-  const [addVocation, { isLoading: loads, error }] = useAddVocationMutation();
+  const [addVocation] = useAddVocationMutation();
 
   const onSubmit = async (data) => {
     const formData = new FormData();
