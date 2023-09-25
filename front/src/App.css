@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "EB Garamond", serif;
+  overflow-x: hidden;
+  background: rgb(237, 234, 222) !important;
+}
+
+.navBar .MuiButtonBase-root {
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Roboto", sans-serif;
+}
+
+.gold {
+  background-color: #c5aa6a;
+}
+
+.red {
+  background: rgb(155, 46, 46);
+}
+
+.dark {
+  background: #36454f;
+}
+
+.white {
+  background: rgb(237, 234, 222);
+}
+
+.pink {
+  background: #ffd1dc;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(146% + 1.3px);
+  height: 328px;
+}
+
+.wave .shape-fill {
+  fill: #36454f;
+}
+
+.animated-plane {
+  position: relative;
+  animation: slideToBottom 4s ease-out forwards;
+}
+
+@keyframes slideToBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-250px);
+    opacity: 0;
+  }
+}
+
+.logo {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.logo:hover {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated-box {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeplane {
+  position: relative;
+  top: 100px;
+  left: 100px;
+  max-width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+
+.scrolling-animation {
+  animation-name: scrollImgs;
+  animation-timing-function: ease;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollImgs {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-350px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.elevated-footer {
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3); /* Customize the shadow as needed */
+}
+
+.listImg {
+  width: 100%;
+  height: 10rem;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.infoBtn {
+  box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  transition: transform 10s ease-out;
+  cursor: pointer;
+  top: 100px;
+}
+
+.infoBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cartImg {
+  max-width: 30%;
+}
+
+.vocationEnded {
+  filter: grayscale(100%);
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.editMainImg {
+  border-radius: 10px;
+  max-width: 250px;
+}
+
+.oi {
+  word-wrap: break-word !important;
+  white-space: pre-wrap !important;
+}
+
+.editMainImg {
+  cursor: pointer;
+  transition: transform 0.5s;
+  opacity: 0.7;
+}
+
+.editMainImg:hover {
+  transform: scale(0.98);
+  opacity: 1;
+}
