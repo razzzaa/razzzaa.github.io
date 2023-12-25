@@ -11,6 +11,7 @@ const verifyUser = require("./authServer");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
@@ -550,7 +551,4 @@ app.get("/api/getCount", (req, res) => {
   });
 });
 
-app.listen(
-  process.env.PORT,
-  console.log(`listening to port ${process.env.PORT}!`)
-);
+app.listen(PORT, console.log(`listening to port ${PORT}!`));
