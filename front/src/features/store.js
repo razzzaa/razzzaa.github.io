@@ -26,7 +26,9 @@ const store = configureStore({
 
 const checkAuth = async () => {
   try {
-    const res = await axios.get("http://localhost:3030/api/isLogged");
+    const res = await axios.get(
+      "https://travelreactserver.onrender.com/api/isLogged"
+    );
     if (res.data.success === true) {
       const { name, mail, id, isAdmin } = res.data;
       store.dispatch(setAuth(true));

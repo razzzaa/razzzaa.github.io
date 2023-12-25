@@ -45,9 +45,12 @@ export default function Register() {
       .email()
       .test("is-email-unique", "Email is already in use !", async (value) => {
         try {
-          await axios.post("http://localhost:3030/api/checkEmail", {
-            email: value,
-          });
+          await axios.post(
+            "https://travelreactserver.onrender.com/api/checkEmail",
+            {
+              email: value,
+            }
+          );
           return true;
         } catch (error) {
           if (error.response.status === 409) {
@@ -71,11 +74,14 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:3030/api/register", {
-        firstName: data.firstName,
-        email: data.email,
-        password: data.password,
-      });
+      const response = await axios.post(
+        "https://travelreactserver.onrender.com/api/register",
+        {
+          firstName: data.firstName,
+          email: data.email,
+          password: data.password,
+        }
+      );
       console.log(response);
       setTimeout(() => {
         navigate("/login");

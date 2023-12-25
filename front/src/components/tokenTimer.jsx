@@ -9,7 +9,7 @@ function TokenTimer() {
 
   const handleLogOut = () => {
     axios
-      .get("http://localhost:3030/api/logout")
+      .get("https://travelreactserver.onrender.com/api/logout")
       .then(() => {
         navigate("/login");
       })
