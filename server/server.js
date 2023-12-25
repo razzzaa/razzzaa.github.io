@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const app = express();
-const port = 3030;
 const salt = 10;
 const verifyUser = require("./authServer");
 const multer = require("multer");
@@ -551,4 +550,7 @@ app.get("/api/getCount", (req, res) => {
   });
 });
 
-app.listen(port, console.log(`listening to port ${port}!`));
+app.listen(
+  process.env.PORT,
+  console.log(`listening to port ${process.env.PORT}!`)
+);
