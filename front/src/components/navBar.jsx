@@ -54,7 +54,7 @@ function NavBar(props) {
 
   const handleLogOut = () => {
     axios
-      .get("https://travelreactserver.onrender.com/api/logout")
+      .get(`${props.url}/api/logout`)
       .then((res) => {
         handleAuth();
         handleUser();

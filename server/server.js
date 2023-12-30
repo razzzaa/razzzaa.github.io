@@ -15,7 +15,7 @@ const PORT = 3030;
 
 app.use(
   cors({
-    origin: ["https://travelreact.onrender.com"],
+    origin: ["https://travelreact.onrender.com", "http://localhost:3000"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
@@ -26,10 +26,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const conn = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
+  // PRODUCTION MYSQL
+  //   host: process.env.HOST,
+  //   user: process.env.USER,
+  //   password: process.env.PASSWORD,
+  //   database: process.env.DATABASE,
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "travel",
   port: 3306,
 });
 

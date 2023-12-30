@@ -7,6 +7,8 @@ import { vocationApi } from "./getAllDataApi";
 import filterReducer from "./favDateSlice";
 import { followersCountApi } from "./getSummedCount";
 
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
 const store = configureStore({
   reducer: {
     cart: cartReducer,
@@ -26,9 +28,7 @@ const store = configureStore({
 
 const checkAuth = async () => {
   try {
-    const res = await axios.get(
-      "https://travelreactserver.onrender.com/api/isLogged"
-    );
+    const res = await axios.get(`${BASE_URL}/api/isLogged`);
     if (res.data.success === true) {
       const { name, mail, id, isAdmin } = res.data;
       store.dispatch(setAuth(true));

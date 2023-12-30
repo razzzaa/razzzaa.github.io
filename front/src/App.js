@@ -12,7 +12,7 @@ import Statistics from "./pages/Statistics";
 const showHeaderBarPaths = ["/", "/wishlist", "/path2", "/statistics"];
 const showFooterBarPaths = ["/", "/wishlist", "/path2", "/statistics"];
 
-function App() {
+function App({ url }) {
   const headerLocation = useLocation();
   const showHeaderBar = showHeaderBarPaths.includes(headerLocation.pathname);
 
@@ -21,13 +21,13 @@ function App() {
 
   return (
     <>
-      {showHeaderBar && <NavBar />}
+      {showHeaderBar && <NavBar url={url} />}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/" element={<Home url={url} />} />
+        <Route path="/login" element={<Login url={url} />} />
+        <Route path="/register" element={<Register url={url} />} />
+        <Route path="/wishlist" element={<WishList url={url} />} />
+        <Route path="/statistics" element={<Statistics url={url} />} />
       </Routes>
       {showFooterBar && <Footer />}
     </>

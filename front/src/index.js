@@ -10,6 +10,9 @@ import store from "./features/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
+console.log(BASE_URL);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +20,7 @@ root.render(
     <ToastContainer />
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <App />
+        <App url={BASE_URL} />
       </Provider>
     </QueryClientProvider>
   </Router>

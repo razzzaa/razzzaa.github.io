@@ -1,1 +1,3 @@
 node_modules/
+# .env
+# DELETE WHEN IN PRODUCTION

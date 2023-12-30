@@ -42,7 +42,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Login() {
+export default function Login({ url }) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [lastLogMessage, setLastLogMessage] = useState("");
@@ -68,9 +68,7 @@ export default function Login() {
 
   const checkAuth = async () => {
     try {
-      const res = await axios.get(
-        "https://travelreactserver.onrender.com/api/isLogged"
-      );
+      const res = await axios.get(`${url}/api/isLogged`);
       if (res.data.success === true) {
         const { name, mail, id, isAdmin } = res.data;
         console.log(isAdmin);
@@ -87,13 +85,10 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "https://travelreactserver.onrender.com/api/login",
-        {
-          email: data.email,
-          password: data.password,
-        }
-      );
+      const response = await axios.post(`${url}/api/login`, {
+        email: data.email,
+        password: data.password,
+      });
       checkAuth();
       toast.success("Login successful! Welcome back!", {
         position: "bottom-left",

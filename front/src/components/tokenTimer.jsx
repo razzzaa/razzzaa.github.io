@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const url = process.env.REACT_APP_SERVER_URL;
 function TokenTimer() {
   const timeoutDuration = 900000;
   let logoutTimer;
@@ -9,7 +10,7 @@ function TokenTimer() {
 
   const handleLogOut = () => {
     axios
-      .get("https://travelreactserver.onrender.com/api/logout")
+      .get(`${url}/api/logout`)
       .then(() => {
         navigate("/login");
       })

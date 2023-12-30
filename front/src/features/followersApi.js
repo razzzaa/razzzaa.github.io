@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://travelreactserver.onrender.com",
+    baseUrl: BASE_URL,
   }),
   tagTypes: ["Followers"],
   endpoints: (builder) => ({

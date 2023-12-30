@@ -35,7 +35,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Register() {
+export default function Register({ url }) {
   const navigate = useNavigate();
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -45,12 +45,9 @@ export default function Register() {
       .email()
       .test("is-email-unique", "Email is already in use !", async (value) => {
         try {
-          await axios.post(
-            "https://travelreactserver.onrender.com/api/checkEmail",
-            {
-              email: value,
-            }
-          );
+          await axios.post(`${url}/api/checkEmail`, {
+            email: value,
+          });
           return true;
         } catch (error) {
           if (error.response.status === 409) {
@@ -74,14 +71,11 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "https://travelreactserver.onrender.com/api/register",
-        {
-          firstName: data.firstName,
-          email: data.email,
-          password: data.password,
-        }
-      );
+      const response = await axios.post(`${url}/api/register`, {
+        firstName: data.firstName,
+        email: data.email,
+        password: data.password,
+      });
       console.log(response);
       setTimeout(() => {
         navigate("/login");
