@@ -27,14 +27,16 @@ app.use(cookieParser());
 
 const conn = mysql.createConnection({
   // PRODUCTION MYSQL
-  //   host: process.env.HOST,
-  //   user: process.env.USER,
-  //   password: process.env.PASSWORD,
-  //   database: process.env.DATABASE,
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "travel",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+
+  //LOCAL
+  //   host: "localhost",
+  //   user: "root",
+  //   password: "",
+  //   database: "travel",
   port: 3306,
 });
 
