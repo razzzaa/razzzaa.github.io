@@ -11,11 +11,11 @@ const verifyUser = require("./authServer");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const PORT = 3030;
+const port = 3030;
 
 app.use(
   cors({
-    origin: ["https://travelreact.onrender.com", "http://localhost:3000"],
+    origin: [process.env.PORT, "http://localhost:3000"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
@@ -558,4 +558,7 @@ app.get("/api/getCount", (req, res) => {
   });
 });
 
-app.listen(PORT, console.log(`listening to port ${PORT}!`));
+app.listen(
+  process.env.PORT,
+  console.log(`listening to port ${process.env.PORT}!`)
+);
