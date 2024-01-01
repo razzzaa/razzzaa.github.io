@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const vocationApi = createApi({
   reducerPath: "vocation",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3030",
+    baseUrl: "https://travelreactserver.onrender.com",
   }),
   tagTypes: ["dltUpdate"],
 
