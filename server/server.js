@@ -15,7 +15,7 @@ const port = 3030;
 
 app.use(
   cors({
-    origin: [process.env.PORT, "http://localhost:3000"],
+    origin: ["https://travelreact.onrender.com", "http://localhost:3000"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
