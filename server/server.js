@@ -33,10 +33,10 @@ const conn = mysql.createConnection({
   database: process.env.DATABASE,
 
   //LOCAL
-  //   host: "localhost",
-  //   user: "root",
-  //   password: "",
-  //   database: "travel",
+  /*  host: "localhost",
+  user: "root",
+  password: "",
+  database: "travel", */
   port: 3306,
 });
 
