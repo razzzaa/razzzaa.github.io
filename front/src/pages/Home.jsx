@@ -25,6 +25,25 @@ function Home() {
 
   TokenTimer();
 
+  const mainImgs = [
+    "amsterdam.jpg",
+    "athens.jpg",
+    "barcelona.jpg",
+    "berlin.jpg",
+    "budapest.jpg",
+    "dubai.jpg",
+    "jerusalem.jpg",
+    "london.jpg",
+    "newdelhi.jpg",
+    "newyork.jpg",
+    "paris.jpg",
+    "prague.jpg",
+    "RiodeJaneiro.jpg",
+    "rome.jpg",
+    "santorini.jpg",
+    "tokyo.jpg",
+  ];
+
   //REDUX AUTH + GET USERID AND FOLLOWED VOCATION ID
   /*...............................................................................................................................................................................*/
   const auth = useSelector((state) => state.auth.isAuthenticated);
@@ -39,6 +58,8 @@ function Home() {
 
   const { data: allData } = useGetAllDataQuery();
   const vocData = allData?.data;
+  console.log(vocData);
+
   const maxItemsOnPage = vocData?.length;
   const maxPages = Math.ceil(maxItemsOnPage / 8);
 
@@ -79,11 +100,7 @@ function Home() {
     };
   }, []);
 
-  const {
-    data: pagData,
-    isLoading,
-    isFetching,
-  } = usePagginationDataQuery(page);
+  const { data: pagData, isFetching } = usePagginationDataQuery(page);
   const paginated = pagData?.data;
 
   //   INFINITE SCROLLING OPTION
@@ -203,8 +220,8 @@ function Home() {
               cols={3}
               gap={8}
             >
-              {vocData?.map((items) => (
-                <MovingImages movingData={items} />
+              {mainImgs.map((items) => (
+                <MovingImages key={items} movingData={items} />
               ))}
             </ImageList>
           </Box>
@@ -355,13 +372,13 @@ function Home() {
             })}
           </Grid>
           <Box sx={{ marginY: 5, display: "flex", justifyContent: "center" }}>
-            <Button onClick={handlePrevClick} isLoading={isFetching}>
+            <Button onClick={handlePrevClick} /* isloading={isFetching} */>
               Previous
             </Button>
             {lastPage ? (
               <Button>NO MORE PAGES</Button>
             ) : (
-              <Button onClick={handleNextClick} isLoading={isFetching}>
+              <Button onClick={handleNextClick} /* isloading={isFetching} */>
                 Next
               </Button>
             )}
