@@ -4,6 +4,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 
 function MovingImages(props) {
   const { country, img_name } = props.movingData;
+  console.log(img_name);
   const imageArray = img_name.split(",");
   const mainImage = imageArray.find((imageName) =>
     imageName.includes("MI.jpg")
@@ -11,8 +12,8 @@ function MovingImages(props) {
   return (
     <ImageListItem key={country}>
       <img
-        src={`/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format`}
-        srcSet={`/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format&dpr=6 2x`}
+        src={`/build/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format`}
+        srcSet={`/build/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format&dpr=6 2x`}
         alt={country}
         loading="lazy"
       />
