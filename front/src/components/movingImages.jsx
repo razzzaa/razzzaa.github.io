@@ -12,8 +12,8 @@ function MovingImages(props) {
   return (
     <ImageListItem key={country}>
       <img
-        src={`/build/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format`}
-        srcSet={`/build/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format&dpr=6 2x`}
+        src={`/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format`}
+        srcSet={`/images/countriesImg/${country}/${mainImage}?w=248&fit=crop&auto=format&dpr=6 2x`}
         alt={country}
         loading="lazy"
       />
