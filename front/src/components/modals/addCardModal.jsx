@@ -148,7 +148,6 @@ export default function AddCardsModal(props) {
 
     const imgArray = Array.from(data.img);
     imgArray.map((file) => formData.append("img", file));
-    console.log(imgArray);
 
     addVocation(formData)
       .unwrap()

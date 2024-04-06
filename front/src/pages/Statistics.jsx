@@ -10,10 +10,8 @@ import { useSelector } from "react-redux";
 
 export default function Statistics() {
   const { data: countData } = useGetSumQuery();
-
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth.isAuthenticated);
-  console.log(auth);
 
   React.useEffect(() => {
     const handleLogOut = () => {
@@ -22,7 +20,7 @@ export default function Statistics() {
     if (auth === false) {
       handleLogOut();
     }
-  }, [auth]);
+  }, [auth, navigate]);
 
   if (!countData || countData.length === 0) {
     return (

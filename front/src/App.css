@@ -55,10 +55,10 @@ body {
   fill: #36454f;
 }
 
-.animated-plane {
+/* .animated-plane {
   position: relative;
   animation: slideToBottom 4s ease-out forwards;
-}
+} */
 
 @keyframes slideToBottom {
   from {
@@ -121,6 +121,7 @@ body {
   animation-duration: 20s;
   animation-iteration-count: infinite;
   transform-origin: top;
+  --webkit-transform: translate3d(0, 0, 0);
 }
 
 @keyframes scrollImgs {
@@ -189,4 +190,40 @@ body {
 .editMainImg:hover {
   transform: scale(0.98);
   opacity: 1;
+}
+
+/* SPINNER...................................................................................................... */
+.spinnerContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #36454f;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fullPage {
+  height: calc(100vh - 5rem);
+}
+
+/* SPINNER...................................................................................................... */
+
+.hidden {
+  display: none;
 }

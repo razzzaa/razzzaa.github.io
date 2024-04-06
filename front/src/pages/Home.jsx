@@ -1,9 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState, useRef, Fragment } from "react";
-import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
-import ImageList from "@mui/material/ImageList";
-import MovingImages from "../components/movingImages";
 import TokenTimer from "../components/tokenTimer";
 import {
   useGetAllDataQuery,
@@ -13,7 +10,7 @@ import TripCard from "../components/tripCards";
 import SelectDateFav from "../components/dateFavSelect";
 import { useSelector } from "react-redux";
 import { useGetFollowersQuery } from "../features/followersApi";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import ImgsList from "../components/ImgsList";
 
 axios.defaults.withCredentials = true;
 
@@ -24,25 +21,6 @@ function Home() {
   const [lastPage, setLastPage] = useState(false);
 
   TokenTimer();
-
-  const mainImgs = [
-    "amsterdam.jpg",
-    "athens.jpg",
-    "barcelona.jpg",
-    "berlin.jpg",
-    "budapest.jpg",
-    "dubai.jpg",
-    "jerusalem.jpg",
-    "london.jpg",
-    "newdelhi.jpg",
-    "newyork.jpg",
-    "paris.jpg",
-    "prague.jpg",
-    "RiodeJaneiro.jpg",
-    "rome.jpg",
-    "santorini.jpg",
-    "tokyo.jpg",
-  ];
 
   //REDUX AUTH + GET USERID AND FOLLOWED VOCATION ID
   /*...............................................................................................................................................................................*/
@@ -58,7 +36,6 @@ function Home() {
 
   const { data: allData } = useGetAllDataQuery();
   const vocData = allData?.data;
-  console.log(vocData);
 
   const maxItemsOnPage = vocData?.length;
   const maxPages = Math.ceil(maxItemsOnPage / 8);
@@ -100,54 +77,8 @@ function Home() {
     };
   }, []);
 
-  const { data: pagData, isFetching } = usePagginationDataQuery(page);
+  const { data: pagData } = usePagginationDataQuery(page);
   const paginated = pagData?.data;
-
-  //   INFINITE SCROLLING OPTION
-  //............................................................................................................................................................................
-  /* 
-  let pageData = null;
-
-  const getData = async (page) => {
-    try {
-      const { data: callData } = await axios.get(
-        `http://localhost:3030/api/data`,
-        {
-          params: {
-            page,
-          },
-        }
-      );
-      pageData = callData.data;
-      return pageData;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      throw error;
-    }
-  };
-
-  const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
-    ["query"],
-    async ({ pageParam = 1 }) => {
-      const response = await getData(pageParam);
-      return response;
-    },
-    {
-      getNextPageParam: (_, pages) => {
-        return pages.length + 1;
-      },
-      initialData: {
-        pages: [pageData],
-        pageParams: [1],
-      },
-    }
-  );
-
-  const itemsPerPage = 8;
-  const totalItems = 22;
-  const totalAvailablePages = Math.ceil(totalItems / itemsPerPage); */
-
-  //............................................................................................................................................................................
 
   return (
     <>
@@ -177,10 +108,6 @@ function Home() {
               component="h1"
             >
               Your Journey Starts Here...
-              <AirplanemodeActiveIcon
-                fontSize="large"
-                className="animated-plane"
-              />
             </Typography>
             <Box>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
@@ -205,26 +132,7 @@ function Home() {
           lg={6}
           sx={{ marginY: 20, display: "flex", justifyContent: "end" }}
         >
-          <Box
-            ref={animatedImgRef}
-            sx={{
-              borderRadius: 40,
-              width: 550,
-              height: 450,
-              overflowY: "hidden",
-            }}
-          >
-            <ImageList
-              className="scrolling-animation"
-              variant="masonry"
-              cols={3}
-              gap={8}
-            >
-              {mainImgs.map((items) => (
-                <MovingImages key={items} movingData={items} />
-              ))}
-            </ImageList>
-          </Box>
+          <ImgsList animatedImgRef={animatedImgRef} />
         </Grid>
       </Grid>
 

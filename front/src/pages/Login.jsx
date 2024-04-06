@@ -71,7 +71,6 @@ export default function Login({ url }) {
       const res = await axios.get(`${url}/api/isLogged`);
       if (res.data.success === true) {
         const { name, mail, id, isAdmin } = res.data;
-        console.log(isAdmin);
         dispatch(setAuth(true));
         dispatch(setUsers({ name, mail, id, isAdmin }));
       } else {

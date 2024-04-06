@@ -32,11 +32,10 @@ function Cart() {
     dispatch(clearCart());
   };
 
-  const handleLogOut = () => {
-    navigate("/login");
-  };
-
   useEffect(() => {
+    const handleLogOut = () => {
+      navigate("/login");
+    };
     if (auth === false) {
       handleLogOut();
     } else {
