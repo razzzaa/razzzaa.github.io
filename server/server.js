@@ -11,7 +11,6 @@ const verifyUser = require("./authServer");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const port = 3030;
 
 app.use(
   cors({
@@ -26,18 +25,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const conn = mysql.createConnection({
-  // PRODUCTION MYSQL
+  // PRODUCTION MYSQL//.........................................................................
   host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
-
-  //LOCAL
-  /*  host: "localhost",
+  //LOCAL//.....................................................................................
+  /* host: "localhost",
   user: "root",
   password: "",
-  database: "travel", */
-  port: 3306,
+  database: "travel",
+  port: 3306, */
+  //.............................................................................................
 });
 
 conn.connect((err) => {
@@ -98,6 +97,7 @@ app.get("/api/statistics", verifyUser, (req, res) => {
 app.get("/", (req, res) => {
   conn.query(`SELECT * FROM vocations`, (err, result) => {
     if (err) {
+      console.log("no data was loaded fam");
       res.status(400).json({ success: false, message: err, data: result });
     } else {
       res
