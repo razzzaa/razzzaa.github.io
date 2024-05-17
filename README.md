@@ -10,7 +10,7 @@ Additionally, there is functionality for an admin user. In the MySQL database, t
 Username: yumi@gmail.com
 Password: 123123123
 
-While the project is not 100% finished and was initially built using create-react-app, and incorporating some older methodologies and a few inactive and buggy methods, it remains fully functional. During development, I utilized XAMPP, but you can use any other method that includes a server and database setup.
+While the project is not 100% finished and incorporating some older methodologies and a few inactive and buggy methods, it remains fully functional. During development, I utilized XAMPP, but you can use any other method that includes a server and database setup.
 
 It's important to note that the application is fully operational and connected to a Google Cloud Database. For hosting, I leverage Render.com's free tier, with server instances automatically deactivated during inactive periods. Therefore, while the provided link for the deployed site is functional, the server side may be inactive due to periods of inactivity.
 
