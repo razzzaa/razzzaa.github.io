@@ -128,7 +128,7 @@ export default function Login({ url }) {
             sm={4}
             md={7}
             sx={{
-              backgroundImage: "url(/images/travel-login.avif)",
+              backgroundImage: "url(images/travel-login.avif)",
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
