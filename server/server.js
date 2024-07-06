@@ -14,7 +14,7 @@ const path = require("path");
 
 app.use(
   cors({
-    origin: ["https://travelreact.onrender.com", "http://localhost:3000"],
+    origin: ["http://localhost:3030", "http://localhost:3000"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
