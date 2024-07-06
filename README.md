@@ -14,5 +14,5 @@ While the project is not 100% finished and incorporating some older methodologie
 
 It's important to note that the application is fully operational and connected to a Google Cloud Database. For hosting, I leverage Render.com's free tier, with server instances automatically deactivated during inactive periods. Therefore, while the provided link for the deployed site is functional, the server side may be inactive due to periods of inactivity.
 
-Feel free to explore my repository to delve into the code and functionalities of the application. Feedback is always welcome. In the future, I plan to overhaul this project from scratch using newer and much more efficient methods to showcase my progress as a developer!
+Feel free to explore my repository to delve into the code and functionalities of the application.
 
